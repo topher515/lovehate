@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block stylesheets %}
+	{{block.super}}
+	{{ review_form.media.css }}
+{% endblock %}
+
+{% block scripts %}
+	{{ block.super }}
+	{{ review_form.media.js }}
+	<script>
+		$(function() {
+			$("input[name=of_profile]").val(window.location.hash.substr(1))
+		})
+	</script>
+{% endblock %}
+
+{% block content %}
+<div class="review">
+	
+	<form method="post" action="{% url reviews.views.write_review domain %}">
+		{% csrf_token %}
+		{{ review_form }}
+		<button type="submit" name="submit" />Post</button>
+	</form>
+	
+</div>
+{% endblock %}

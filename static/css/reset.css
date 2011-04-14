@@ -1,0 +1,15 @@
+html, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, label, fieldset, input, p, blockquote, th, td {margin:0; padding:0}
+h1, h2, h3, h4, h5, h6 {font-size:100%; font-weight:normal;}
+strong {font-weight:bold;}
+ul, li {list-style:none;}
+em {font-style:italic;}
+img {border:none;}
+a {outline: none; text-decoration:none;}
+table { border-collapse: collapse; border-spacing: 0; }
+
+html {font-size:100.01%;}
+body {font-size:75%;color:#222;background:#fff;font-family:"Helvetica Neue", Arial, Helvetica, sans-serif;}
+
+.clearfix:after {content:"\0020";display:block;height:0;clear:both;visibility:hidden;overflow:hidden;}
+.clearfix {display:block;}
+.clear {clear:both;}

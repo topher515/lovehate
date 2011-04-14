@@ -1,0 +1,13 @@
+/* base.css */
+
+$std-width: 600px;
+
+body {
+	font-size: 14px;
+}
+
+#content {
+	margin: auto;
+	width: $std-width;
+	min-height: 20em;
+}

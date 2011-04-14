@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>{% block title %}OKReview{% endblock %}</title>
+
+{% block extra-head %}{% endblock %}
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/reset.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/base.css" type="text/css" media="screen" />
+{% block stylesheets %}
+
+{% endblock %}
+
+{% block scripts %}
+	<script src="http://code.jquery.com/jquery-1.5.2.min.js"></script>
+	<script src="{{ STATIC_URL }}js/jquery.jeditable.mini.js"></script>
+	<script src="{{ STATIC_URL }}js/jquery-ui-1.8.11.custom.min.js"></script>
+	<script>
+		jQuery(function() {
+
+		})
+	</script>
+{% endblock %}
+
+</head>
+<body>
+	<div id="header">
+		
+	</div>
+	<div id="content">
+	{% block content %}
+	{% endblock %}
+	</div>
+	<div id="footer">
+	</div>
+</body>
+</html>

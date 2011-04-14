@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{profile.name}}</h1>
+{% for review in reviews %}
+	{% if forloop.first %}<ul>{% endif %}
+	<li>
+		<h2>{{ review.title }}</h1>
+		<div class="review-text">{{ review.text }}</div>
+		<span class="review-rating">{{ review.rating }}</span>
+	</li>
+	{% if forloop.last %}<ul>{% endif %}
+{% endfor %}
+
+
+{% endblock %}

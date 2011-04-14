@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h3>Latest reviews for</h3>
+<h1>{{dating_site.display_name}}</h1>
+<h4>{{dating_site.domain}}</h4>
+{% for review in reviews %}
+	{% if forloop.first %}<ul>{% endif %}
+	<li>
+		<h2>{{ review.title }}</h1>
+		<div class="review-text">{{ review.text }}</div>
+		<span class="review-rating">{{ review.rating }}</span>
+		<span class="review-time">{{ review.modified }}</span>
+	</li>
+	{% if forloop.last %}<ul>{% endif %}
+{% endfor %}
+
+<a href="{% url reviews.views.write_review dating_site.domain %}">Write a review of somebody on {{dating_site.display_name}}</a>
+
+
+{% endblock %}
