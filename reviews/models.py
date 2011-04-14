@@ -37,6 +37,12 @@ class Critic(models.Model):
 	user = models.OneToOneField(User, blank=True)
 	ip = models.IPAddressField()
 		
+	def __str__(self):
+		return self.user.username if self.user else self.ip
+		
+	def user_or_anon(self):
+		return self.user.username if self.user else 'Anonymous'
+
 	
 class ReviewPhoto(models.Model):
 	photo = models.ImageField(upload_to="review_files")

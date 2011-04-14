@@ -10,6 +10,17 @@ from django.conf import settings
 import models
 import forms
 
+
+def main_page(request):
+	return redirect(all_latest_reviews)
+
+
+def write_which(request):
+	return render_to_response('write_which.html',{
+			'dating_sites': models.DatingSite.objects.all()
+		}, RequestContext(request))
+
+
 def write_review_profile(request,domain,profile):
 	
 	return redirect('%s#%s' % (reverse(write_review, kwargs={'domain':domain}), profile) )
@@ -49,10 +60,19 @@ def write_review(request,domain):
 		},RequestContext(request))
 
 
+def all_latest_reviews(request):
+	reviews = models.Review.objects.filter() \
+		.order_by('-modified')
+	dating_sites = models.DatingSite.objects.all()
+	return render_to_response('all_latest_reviews.html',{
+			'reviews':reviews,
+			'dating_sites':dating_sites
+		},RequestContext(request))
+
 def latest_reviews(request,domain):
 	dating_site = get_object_or_404(models.DatingSite,domain=domain)
 	reviews = models.Review.objects.filter(of_profile__dating_site=dating_site) \
-		.order_by('modified')
+		.order_by('-modified')
 	return render_to_response('latest_reviews.html',{
 			'reviews':reviews,
 			'dating_site':dating_site,

@@ -1,8 +1,170 @@
 /* base.css */
 body {
-  font-size: 14px; }
+  font-size: 12px;
+  background-color: white;
+  color: #5a6675; }
+
+#header {
+  background-image: url(../images/stripes2.png);
+  background-repeat: repeat-x;
+  position: fixed;
+  width: 100%;
+  height: 190px;
+  top: 0px;
+  left: 0px;
+  z-index: 100; }
+  #header #inner-header {
+    background-color: #e7ecff;
+    width: 640px;
+    height: 70px;
+    margin: 60px auto;
+    position: relative;
+    border-radius: 8px;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5); }
+    #header #inner-header > ul {
+      margin-left: 10px; }
+    #header #inner-header > ul > li {
+      display: inline-block;
+      padding: 1.2em;
+      font-size: 1.6em;
+      text-shadow: #89A 1px 1px 1px;
+      cursor: pointer; }
+    #header #inner-header > ul > li:hover {
+      text-shadow: #CBD 2px 1px 1px;
+      color: #ABC; }
+    #header #inner-header .logo {
+      position: absolute;
+      right: 0px;
+      top: -20px; }
 
 #content {
-  margin: auto;
-  width: 600px;
-  min-height: 20em; }
+  margin: 190px auto;
+  padding: 1px;
+  width: 640px;
+  min-height: 20em;
+  position: relative;
+  z-index: 10; }
+  #content h1 {
+    font-size: 2.2em; }
+  #content h2 {
+    font-size: 2em; }
+  #content h3 {
+    font-size: 1.8em; }
+  #content h4 {
+    font-size: 1.6em; }
+  #content h5 {
+    font-size: 1.4em; }
+  #content h6 {
+    font-size: 1.2em; }
+  #content .star-wrapper-static {
+    display: block;
+    width: 100%; }
+    #content .star-wrapper-static a {
+      float: left; }
+  #content ul.site-chooser {
+    margin: 1.5em; }
+    #content ul.site-chooser li {
+      font-size: 2.3em; }
+  #content .write-review {
+    display: block;
+    padding: 6px;
+    min-height: 4em;
+    position: relative;
+    background-color: #e7ecff;
+    border-radius: 8px;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5); }
+    #content .write-review form {
+      /* HACK (fucking star-ratings jquery plugin sucks nutbars) */ }
+      #content .write-review form input, #content .write-review form textarea {
+        font-size: 1.3em;
+        padding: .3em;
+        width: 25em; }
+      #content .write-review form label {
+        display: block;
+        font-size: 1.5em; }
+      #content .write-review form p {
+        margin: 1em;
+        clear: both; }
+      #content .write-review form label[for=id_rating] {
+        margin: 1em;
+        margin-bottom: 0em;
+        clear: both; }
+      #content .write-review form .star-wrapper {
+        margin: 1em;
+        margin-top: 0em;
+        clear: both;
+        height: 15px; }
+  #content .review {
+    width: 100%;
+    min-height: 4em;
+    position: relative;
+    margin: 3em 0em; }
+    #content .review .tab {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      padding: 6px;
+      width: 138px;
+      min-height: 2.5em;
+      background-color: #e7ecff;
+      border-top-left-radius: 8px;
+      -moz-border-topleft-radius: 8px;
+      -webkit-border-top-top-radius: 8px;
+      border-bottom-left-radius: 8px;
+      -moz-border-bottomleft-radius: 8px;
+      -webkit-border-bottom-bottom-radius: 8px; }
+      #content .review .tab h1 {
+        font-size: 1.6em;
+        text-shadow: #89A 1px 1px 1px; }
+      #content .review .tab h2 {
+        font-size: .8em; }
+    #content .review .main {
+      margin-left: 150px;
+      padding: 6px;
+      display: block;
+      background-color: #e7ecff;
+      width: 476px;
+      min-height: 3em;
+      position: relative;
+      border-radius: 8px;
+      -moz-border-radius: 8px;
+      -webkit-border-radius: 8px;
+      border-top-left-radius: 0px;
+      -moz-border-topleft-radius: 0px;
+      -webkit-border-top-top-radius: 0px;
+      box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+      -moz-box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+      -webkit-box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5); }
+      #content .review .main h1 {
+        padding: .2em;
+        font-size: 1.5sem;
+        text-shadow: #89A 1px 1px 1px; }
+      #content .review .main .review-text {
+        margin: .6em; }
+      #content .review .main .meta {
+        font-size: .8em;
+        margin: .5em; }
+
+#footer {
+  background-color: black;
+  width: 100%;
+  min-height: 5em;
+  position: relative;
+  text-align: center; }
+  #footer .mantra {
+    position: relative;
+    margin: 0em auto;
+    padding: 1em; }
+  #footer .logo {
+    position: absolute;
+    right: 1em;
+    bottom: 1em;
+    height: 8em; }

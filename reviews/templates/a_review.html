@@ -1,0 +1,16 @@
+{% load reviews %}
+
+<li class="review">
+	<div class="tab">
+		<div class="star-wrapper-static">{{ review.rating }}</div>
+		<a href="{% url reviews.views.reviews_of review.of_profile.dating_site.domain review.of_profile.name %}"><h1>{{ review.of_profile.name }}</h1></a>
+		<a href="{% url reviews.views.latest_reviews review.of_profile.dating_site.domain %}"><h2>{{ review.of_profile.dating_site.domain }}</h2></a>
+	</div>
+	<div class="main">
+		<h1>{{ review.title }}</h1>
+		<div class="review-text">{% markdownify review.text %}</div>
+		<div class="meta">
+			{{ review.by_critic }} @ {{ review.modified }}
+		</div>
+	</div>
+</li>

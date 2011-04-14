@@ -1,9 +1,5 @@
 {% extends 'base.html' %}
 
-{% block stylesheets %}
-	{{block.super}}
-	{{ review_form.media.css }}
-{% endblock %}
 
 {% block scripts %}
 	{{ block.super }}
@@ -16,12 +12,32 @@
 {% endblock %}
 
 {% block content %}
-<div class="review">
+<div class="write-review">
 	
 	<form method="post" action="{% url reviews.views.write_review domain %}">
 		{% csrf_token %}
-		{{ review_form }}
-		<button type="submit" name="submit" />Post</button>
+		<p>
+			{{ review_form.of_profile.errors }}
+			<label for="id_of_profile">Profile on <span style="font-size: 1.5em;">{{ domain }}</span>:</label> 
+			{{ review_form.of_profile }}
+		</p>
+		<p>
+			{{ review_form.title.errors }}
+			<label for="id_title">Title:</label>
+			{{ review_form.title }}
+		</p> 
+		<p>
+			{{ review_form.text.errors }}
+			<label for="id_text">Text:</label> 
+			{{ review_form.text }}
+		</p>
+		{{ review_form.rating.errors }}
+		<label for="id_rating">Rating:</label>
+		{{ review_form.rating }}
+
+		<p>
+			<button type="submit" name="submit" />Post</button>
+		</p>
 	</form>
 	
 </div>

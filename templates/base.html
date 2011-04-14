@@ -1,10 +1,11 @@
 <html>
 <head>
-<title>{% block title %}OKReview{% endblock %}</title>
+<title>{% block title %}Love|Hate{% endblock %}</title>
 
 {% block extra-head %}{% endblock %}
-	<link rel="stylesheet" href="{{ STATIC_URL }}css/reset.css" type="text/css" media="screen" />
-	<link rel="stylesheet" href="{{ STATIC_URL }}css/base.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/reset.css" type="text/css" media="all" />
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/base.css" type="text/css" media="all" />
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/jquery.ui.stars.css" type="text/css" media="all" />
 {% block stylesheets %}
 
 {% endblock %}
@@ -15,7 +16,17 @@
 	<script src="{{ STATIC_URL }}js/jquery-ui-1.8.11.custom.min.js"></script>
 	<script>
 		jQuery(function() {
-
+			// Static star wrapper
+			$('.star-wrapper-static').each(function(i) {
+				$(this).addClass('ui-stars-star')
+				num = Number($(this).html())
+				if (num != NaN) {
+					$(this).html('')
+					for (i=0; i<num; i++) {
+						$(this).append('<a href="#"></a>')
+					}
+				}
+			})
 		})
 	</script>
 {% endblock %}
@@ -23,13 +34,23 @@
 </head>
 <body>
 	<div id="header">
-		
+		<div id="inner-header">
+			<ul>
+				<li><a href="{% url reviews.views.write_which %}">Write</a></li>
+				<li><a href="{% url reviews.views.all_latest_reviews %}">Latest</a></li>
+			</ul>
+			<img class="logo" src="{{ STATIC_URL }}images/logo.png" />
+		</div>
 	</div>
 	<div id="content">
+		
+		
 	{% block content %}
 	{% endblock %}
 	</div>
 	<div id="footer">
+		<div class="mantra">this shit is bananas...<br>&copy; Love|Hate 2011</div>
+		<img class="logo" src="{{ STATIC_URL }}images/logo.png" />
 	</div>
 </body>
 </html>

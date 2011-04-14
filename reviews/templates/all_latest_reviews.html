@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Latest reviews from all sites</h1>
+{% for review in reviews %}
+	{% if forloop.first %}<ul>{% endif %}
+	{% include "a_review.html" %}
+	{% if forloop.last %}<ul>{% endif %}
+{% endfor %}
+
+<div>
+	<h2>Write a review for somebody on...</h2>
+{% for dating_site in dating_sites %}
+	{% if forloop.first %}<ul class="site-chooser">{% endif %}
+	<li>
+		<a href="{% url reviews.views.write_review dating_site.domain %}">{{dating_site.display_name}}</a>
+	</li>
+	{% if forloop.last %}</ul>{% endif %}
+{% endfor %}
+	<h3>Don't see the site here? <a href="#">Ask us to support it.</a></h3>
+</div>
+
+
+{% endblock %}

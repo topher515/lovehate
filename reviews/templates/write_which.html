@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div>
+	<h1>On which site was his/her(/its) profile?</h1>
+{% for dating_site in dating_sites %}
+	{% if forloop.first %}<ul class="site-chooser">{% endif %}
+	<li>
+		<a href="{% url reviews.views.write_review dating_site.domain %}">{{dating_site.display_name}}</a>
+	</li>
+	{% if forloop.last %}</ul>{% endif %}
+{% endfor %}
+	<h3>Don't see the site here? <a href="#">Ask us to support it.</a></h3>
+</div>
+
+{% endblock %}
